@@ -96,15 +96,6 @@ My expertise spans enterprise software design, payment integration, banking work
 • GitHub Actions
 • Google Cloud Platform (GCP)
 
----
-
-## Frontend
-
-• React
-• Vite
-• TypeScript
-• Tailwind CSS
-• shadcn/ui
 
 ---
 
@@ -385,7 +376,6 @@ Microservices
 
 REST APIs
 
-Hibernate
 
 Spring Security
 
