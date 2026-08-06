@@ -82,7 +82,7 @@ function NisaScreenshot() {
 
 function ProjectShowcase({ project }) {
   const frame = useRef(null)
-  const rotation = useRef({ x: -4, y: 0, lastX: 0, lastY: 0, velocityX: 0, velocityY: 0, travel: 0, pointerType: 'mouse', burstFrames: 0, animationFrame: null, dragging: false, moved: false })
+  const rotation = useRef({ x: -4, y: 0, lastX: 0, lastY: 0, velocityX: 0, velocityY: 0, travel: 0, pointerType: 'mouse', decay: 0.978, burstFrames: 0, resetAfterBurst: false, animationFrame: null, dragging: false, moved: false })
 
   const applyRotation = (target, rotateX, rotateY, moveX = 0, moveY = 0) => {
     target.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`)
@@ -105,10 +105,15 @@ function ProjectShowcase({ project }) {
       if (state.burstFrames === 0) {
         state.velocityX = 0
         state.velocityY = 0
+        if (state.resetAfterBurst) {
+          state.x = -4
+          state.y = 0
+          state.resetAfterBurst = false
+        }
       }
     } else {
-      state.velocityX *= 0.978
-      state.velocityY *= 0.978
+      state.velocityX *= state.decay
+      state.velocityY *= state.decay
     }
     applyRotation(frame.current, state.x, state.y)
 
@@ -130,8 +135,13 @@ function ProjectShowcase({ project }) {
     if (state.dragging) {
       const deltaX = event.clientX - state.lastX
       const deltaY = event.clientY - state.lastY
-      state.velocityX = Math.max(-240, Math.min(240, -deltaY * 48))
-      state.velocityY = Math.max(-280, Math.min(280, deltaX * 60))
+      if (state.pointerType === 'touch') {
+        state.velocityX = Math.max(-18, Math.min(18, -deltaY * 2.4))
+        state.velocityY = Math.max(-24, Math.min(24, deltaX * 3.2))
+      } else {
+        state.velocityX = Math.max(-240, Math.min(240, -deltaY * 48))
+        state.velocityY = Math.max(-280, Math.min(280, deltaX * 60))
+      }
       state.x += state.velocityX
       state.y += state.velocityY
       state.lastX = event.clientX
@@ -157,10 +167,12 @@ function ProjectShowcase({ project }) {
     state.velocityX = 0
     state.velocityY = 0
     state.burstFrames = 0
+    state.resetAfterBurst = false
     state.dragging = true
     state.moved = false
     state.travel = 0
     state.pointerType = event.pointerType
+    state.decay = event.pointerType === 'touch' ? 0.86 : 0.978
     state.lastX = event.clientX
     state.lastY = event.clientY
     event.currentTarget.setPointerCapture(event.pointerId)
@@ -192,9 +204,20 @@ function ProjectShowcase({ project }) {
       return
     }
     if (state.animationFrame) cancelAnimationFrame(state.animationFrame)
-    state.velocityX = 0
-    state.velocityY = 140
-    state.burstFrames = 18
+    if (state.pointerType === 'touch') {
+      state.x = -4
+      state.y = 0
+      state.velocityX = 0
+      state.velocityY = 12
+      state.burstFrames = 30
+      state.resetAfterBurst = true
+      applyRotation(frame.current, state.x, state.y)
+    } else {
+      state.velocityX = 0
+      state.velocityY = 140
+      state.burstFrames = 18
+      state.resetAfterBurst = false
+    }
     state.animationFrame = requestAnimationFrame(spin)
   }
 
