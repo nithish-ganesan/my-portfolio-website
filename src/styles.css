@@ -291,3 +291,20 @@ img{max-width:100%}
   .contact-card{padding:34px 18px 88px}
   .contact-copy h2{font-size:26px}
 }
+/* iPhone/Android narrow viewport fixes. */
+@media(max-width:480px){
+  header{height:auto;max-height:none;overflow:visible;align-items:flex-start}
+  header nav{display:flex;min-width:0;padding-top:10px;gap:10px;border-top:1px solid rgba(215,222,213,.12)}
+  header nav a{font-size:12px;line-height:1;white-space:nowrap}
+  .nav-contact-link{padding:7px 12px!important}
+  .hero{min-height:auto;padding-top:190px;padding-bottom:74px}
+  .hero-copy{width:100%;max-width:100%}
+  .hero .eyebrow{font-size:10px;line-height:1.65;letter-spacing:.14em;max-width:310px}
+  .hero h1{font-size:clamp(42px,13.2vw,52px);line-height:1.08;max-width:100%}
+  .hero h1 small{display:block;margin-top:6px;font-size:10px}
+  .hero-description{font-size:17px;line-height:1.62;margin-top:28px}
+  .core-wrap{right:-210px;top:55%;opacity:.22}
+  .core-label,.hero-index{display:none}
+  .round-link{margin-top:2px}
+  .scroll{position:relative;left:auto;bottom:auto;margin-top:46px}
+}
