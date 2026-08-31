@@ -83,6 +83,7 @@ function NisaScreenshot() {
 function ProjectShowcase({ project }) {
   const frame = useRef(null)
   const rotation = useRef({ x: -4, y: 0, lastX: 0, lastY: 0, velocityX: 0, velocityY: 0, travel: 0, pointerType: 'mouse', decay: 0.978, burstFrames: 0, resetAfterBurst: false, animationFrame: null, dragging: false, moved: false })
+  const isStaticPreview = project.title === 'NiSa Compare'
 
   const applyRotation = (target, rotateX, rotateY, moveX = 0, moveY = 0) => {
     target.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`)
@@ -221,9 +222,9 @@ function ProjectShowcase({ project }) {
     state.animationFrame = requestAnimationFrame(spin)
   }
 
-  return <article className="project-showcase" ref={frame} onPointerMove={handlePointerMove} onPointerDown={startRotation} onPointerUp={stopRotation} onPointerCancel={stopRotation} onPointerLeave={settleRotation}>
+  return <article className={`project-showcase${isStaticPreview ? ' project-showcase-static' : ''}`} ref={frame} onPointerMove={isStaticPreview ? undefined : handlePointerMove} onPointerDown={isStaticPreview ? undefined : startRotation} onPointerUp={isStaticPreview ? undefined : stopRotation} onPointerCancel={isStaticPreview ? undefined : stopRotation} onPointerLeave={isStaticPreview ? undefined : settleRotation}>
     <div className="project-stars" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /></div>
-    <a className="project-screen-link" href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`} onClick={handleProjectClick} draggable="false">
+    <a className="project-screen-link" href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`} onClick={isStaticPreview ? undefined : handleProjectClick} draggable="false">
       <NisaScreenshot />
     </a>
     <div className="project-showcase-copy">

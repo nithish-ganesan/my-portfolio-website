@@ -76,6 +76,9 @@ h1 em,h2 em,.project-heading h2 span{font-family:Manrope,Arial,sans-serif;font-s
 .project-stars i:nth-child(1){left:18%;top:22%}.project-stars i:nth-child(2){left:26%;top:9%}.project-stars i:nth-child(3){left:45%;top:14%}.project-stars i:nth-child(4){left:88%;top:19%}.project-stars i:nth-child(5){left:12%;top:67%}.project-stars i:nth-child(6){left:38%;top:72%}.project-stars i:nth-child(7){left:76%;top:68%}.project-stars i:nth-child(8){left:94%;top:57%}
 .project-screen-link{position:relative;z-index:1;width:min(100%,820px);display:block;transform:translate3d(var(--move-x),var(--move-y),0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transform-style:preserve-3d;transform-origin:center;transition:none;will-change:transform;cursor:grab;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;-webkit-tap-highlight-color:transparent}
 .project-screen-link:active{cursor:grabbing}
+.project-showcase-static{--tilt-x:0deg;--tilt-y:0deg;touch-action:auto;perspective:none}
+.project-showcase-static .project-screen-link{transform:none;transform-style:flat;will-change:auto;cursor:pointer;user-select:auto;-webkit-user-select:auto}
+.project-showcase-static .project-screen-link:active{cursor:pointer}
 .project-showcase-copy{position:relative;z-index:1;width:min(100%,940px);margin-top:30px;text-align:center;display:flex;flex-direction:column;align-items:center}
 .project-showcase-copy>p:first-child{margin:0 0 14px;font:14px 'DM Mono',monospace;letter-spacing:.34em;text-transform:uppercase;color:#d5a71e}
 .project-showcase-copy h3{margin:0;color:#f4f4f1;font-size:clamp(38px,3.7vw,56px);line-height:1.05;font-weight:500;letter-spacing:0}
@@ -145,4 +148,4 @@ h1 em,h2 em,.project-heading h2 span{font-family:Manrope,Arial,sans-serif;font-s
 .contact{padding-top:70px;padding-bottom:20px}
 .contact footer{margin-top:48px}
 @media(max-width:760px){.section{padding-top:54px;padding-bottom:54px}.hero{min-height:auto;padding-top:156px;padding-bottom:74px}.marquee{margin-top:38px;margin-bottom:-54px}.regulus-grid{margin-top:28px}.project-visual{height:260px}.projects{padding-top:48px;padding-bottom:48px}.project-showcase{padding:24px 10px 24px}.project-showcase-copy{margin-top:22px}.skills{padding-top:54px}.contact{padding-top:54px}.contact footer{margin-top:42px}}
-@media(pointer:coarse){.project-showcase{touch-action:none}.project-screen-link{width:100%;transform-style:preserve-3d}.nisa-screenshot{backface-visibility:visible}}
+@media(pointer:coarse){.project-showcase{touch-action:none}.project-showcase-static{touch-action:auto}.project-screen-link{width:100%;transform-style:preserve-3d}.project-showcase-static .project-screen-link{transform-style:flat}.nisa-screenshot{backface-visibility:visible}}
