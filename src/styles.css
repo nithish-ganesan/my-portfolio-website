@@ -576,3 +576,149 @@ img{max-width:100%}
   .hero-description{font-size:16px;line-height:1.52}
   .scroll{right:4.5vw;top:50%;font-size:8px}
 }
+/* iPhone Chrome final override: no hidden overflow, no hamburger, compact section rhythm. */
+@media(max-width:600px){
+  html,body,#root{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden!important;
+  }
+  header{
+    top:24px!important;
+    left:50%!important;
+    width:calc(100vw - 28px)!important;
+    max-width:none!important;
+    height:112px!important;
+    min-height:112px!important;
+    padding:18px 22px 16px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    align-content:start!important;
+    gap:22px!important;
+    border-radius:36px!important;
+    transform:translateX(-50%)!important;
+    overflow:hidden!important;
+  }
+  header .brand{
+    display:block!important;
+    flex:none!important;
+    margin:0!important;
+    color:#d5a71e!important;
+    font-size:16px!important;
+    line-height:1!important;
+    letter-spacing:.22em!important;
+  }
+  header nav{
+    display:flex!important;
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:0!important;
+    overflow:visible!important;
+  }
+  header nav a{
+    display:inline-block!important;
+    flex:0 1 auto!important;
+    min-width:0!important;
+    padding:0!important;
+    color:#d0d6d4!important;
+    font-size:clamp(10px,2.95vw,14px)!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  header .nav-contact-link,
+  header .nav-menu-icon,
+  .nav-menu-icon,
+  .nav-menu-icon:before{
+    display:none!important;
+  }
+  .hero{
+    min-height:auto!important;
+    padding:204px 6.2vw 34px!important;
+  }
+  .hero .eyebrow{
+    margin-bottom:26px!important;
+    font-size:clamp(8px,2.25vw,10px)!important;
+    line-height:1.55!important;
+    letter-spacing:.16em!important;
+    white-space:normal!important;
+  }
+  .hero h1{
+    width:100%!important;
+    max-width:100%!important;
+    font-size:clamp(28px,7.4vw,40px)!important;
+    line-height:1.16!important;
+  }
+  .hero h1 small{
+    display:block!important;
+    margin-top:16px!important;
+    font-size:10px!important;
+  }
+  .hero-description{
+    max-width:100%!important;
+    margin:34px 0 0!important;
+    font-size:clamp(16px,4.1vw,19px)!important;
+    line-height:1.52!important;
+  }
+  .round-link{display:none!important}
+  .core-wrap{
+    right:-315px!important;
+    top:56%!important;
+    opacity:.18!important;
+    pointer-events:none!important;
+  }
+  .scroll{
+    right:6vw!important;
+    top:48%!important;
+  }
+  .section{
+    padding-top:48px!important;
+    padding-bottom:48px!important;
+  }
+  .enterprise-section{
+    padding-top:50px!important;
+  }
+  .regulus-grid{
+    gap:22px!important;
+    margin-top:28px!important;
+  }
+  .features{
+    margin:20px 0 0!important;
+  }
+  .features div{
+    padding:18px 0!important;
+    min-height:0!important;
+  }
+  .enterprise-panel{
+    margin-top:22px!important;
+    padding-top:22px!important;
+    gap:18px!important;
+  }
+  .enterprise-panel>div:first-child h3{
+    font-size:28px!important;
+  }
+  .enterprise-panel>div:first-child p{
+    font-size:18px!important;
+    line-height:1.55!important;
+  }
+}
+@media(max-width:390px){
+  header{
+    width:calc(100vw - 22px)!important;
+    padding-left:20px!important;
+    padding-right:20px!important;
+  }
+  header nav a{
+    font-size:10.5px!important;
+  }
+  .hero{
+    padding-top:196px!important;
+  }
+  .hero h1{
+    font-size:clamp(27px,7.25vw,32px)!important;
+  }
+}
