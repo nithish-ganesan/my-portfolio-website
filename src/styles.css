@@ -722,3 +722,109 @@ img{max-width:100%}
     font-size:clamp(27px,7.25vw,32px)!important;
   }
 }
+/* Match the reference mobile header exactly: one centered pill row. */
+.nav-skills-link{display:none}
+@media(max-width:600px){
+  header{
+    top:48px!important;
+    left:50%!important;
+    width:calc(100vw - 32px)!important;
+    max-width:1084px!important;
+    height:54px!important;
+    min-height:54px!important;
+    padding:0 26px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:22px!important;
+    border-radius:999px!important;
+    transform:translateX(-50%)!important;
+    overflow:hidden!important;
+  }
+  header .brand{
+    flex:0 0 auto!important;
+    margin:0!important;
+    font-size:17px!important;
+    line-height:1!important;
+    letter-spacing:.2em!important;
+  }
+  header nav{
+    flex:1 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:0!important;
+    border:0!important;
+    overflow:visible!important;
+  }
+  header nav a{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex:0 0 auto!important;
+    min-width:0!important;
+    height:38px!important;
+    padding:0!important;
+    color:#cbd2d8!important;
+    font-size:clamp(12px,3.45vw,15px)!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  header nav a[href="#home"]{
+    min-width:86px!important;
+    padding:0 20px!important;
+    border-radius:999px!important;
+    color:#f4f4f1!important;
+    background:radial-gradient(circle at 74% 50%,rgba(27,93,77,.52),transparent 62%),rgba(116,92,35,.48)!important;
+    box-shadow:0 0 30px rgba(24,88,74,.22)!important;
+  }
+  header nav a:nth-child(3),
+  header nav a[href="#achievements"],
+  header .nav-contact-link,
+  header .nav-menu-icon,
+  .nav-menu-icon,
+  .nav-menu-icon:before{
+    display:none!important;
+  }
+  header .nav-skills-link{display:inline-flex!important}
+  .hero{
+    padding-top:158px!important;
+  }
+}
+@media(max-width:420px){
+  header{
+    top:48px!important;
+    width:calc(100vw - 26px)!important;
+    height:54px!important;
+    min-height:54px!important;
+    padding:0 20px!important;
+    gap:17px!important;
+  }
+  header .brand{font-size:15px!important}
+  header nav a{
+    font-size:12px!important;
+  }
+  header nav a[href="#home"]{
+    min-width:76px!important;
+    padding:0 16px!important;
+  }
+  .hero{
+    padding-top:150px!important;
+  }
+}
+@media(max-width:375px){
+  header{
+    width:calc(100vw - 20px)!important;
+    padding:0 15px!important;
+    gap:13px!important;
+  }
+  header nav a{font-size:11px!important}
+  header nav a[href="#home"]{
+    min-width:68px!important;
+    padding:0 13px!important;
+  }
+}
