@@ -993,3 +993,94 @@ img{max-width:100%}
     padding:0 8px!important;
   }
 }
+/* Show every original nav field on iPhone while keeping the pill in one row. */
+@media(max-width:600px){
+  header{
+    top:48px!important;
+    width:calc(100vw - 24px)!important;
+    height:64px!important;
+    min-height:64px!important;
+    padding:0 12px!important;
+    gap:12px!important;
+    display:flex!important;
+    align-items:center!important;
+    overflow:hidden!important;
+  }
+  header .brand{
+    display:block!important;
+    flex:0 0 auto!important;
+    margin:0!important;
+    font-size:14px!important;
+    letter-spacing:.18em!important;
+  }
+  header nav{
+    display:flex!important;
+    flex:1 1 auto!important;
+    min-width:0!important;
+    width:auto!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:0!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    overflow:visible!important;
+  }
+  header nav a,
+  header nav a:nth-child(3),
+  header nav a:nth-child(5),
+  header .nav-contact-link{
+    display:inline-flex!important;
+    flex:0 1 auto!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-width:0!important;
+    height:auto!important;
+    padding:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:#cbd2d8!important;
+    font-size:clamp(8.5px,2.25vw,11px)!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  header nav a[href="#home"]{
+    height:40px!important;
+    min-width:52px!important;
+    padding:0 10px!important;
+    border-radius:999px!important;
+    color:#f4f4f1!important;
+    background:radial-gradient(circle at 74% 50%,rgba(27,93,77,.52),transparent 62%),rgba(116,92,35,.48)!important;
+    box-shadow:0 0 30px rgba(24,88,74,.22)!important;
+  }
+  header .nav-menu-icon,
+  .nav-menu-icon,
+  .nav-menu-icon:before,
+  .nav-skills-link,
+  .scroll,
+  .scroll:after{
+    display:none!important;
+  }
+}
+@media(max-width:390px){
+  header{
+    width:calc(100vw - 18px)!important;
+    padding:0 9px!important;
+    gap:9px!important;
+  }
+  header .brand{
+    font-size:13px!important;
+    letter-spacing:.16em!important;
+  }
+  header nav a,
+  header nav a:nth-child(3),
+  header nav a:nth-child(5),
+  header .nav-contact-link{
+    font-size:8px!important;
+  }
+  header nav a[href="#home"]{
+    min-width:46px!important;
+    padding:0 7px!important;
+  }
+}
